@@ -46,7 +46,7 @@ class BgSubtractApp : public AppBasic
 	float mThreshold;
 	
 	// Background subtraction with threshold.
-	void subtractBg( Channel32f& channel1, Channel32f& channel2, 
+	void subtractBg( Channel32f const& channel1, Channel32f const& channel2, 
 					 Channel32f& channelResult, float threshold );
 };
 
@@ -144,12 +144,12 @@ void BgSubtractApp::keyDown( KeyEvent event )
 	}
 }	
 
-void BgSubtractApp::subtractBg( Channel32f& channel1, Channel32f& channel2, 
+void BgSubtractApp::subtractBg( Channel32f const& channel1, Channel32f const& channel2, 
 								Channel32f& channelResult, float threshold )
 {	
-	Channel32f::Iter iterCh1 = channel1.getIter();
-	Channel32f::Iter iterCh2 = channel2.getIter();
-	Channel32f::Iter iterCh3 = channelResult.getIter();
+	Channel32f::ConstIter iterCh1 = channel1.getIter();
+	Channel32f::ConstIter iterCh2 = channel2.getIter();
+	Channel32f::Iter      iterCh3 = channelResult.getIter();
 
 	while ( iterCh1.line() && iterCh2.line() && iterCh3.line() ) 
 	{
