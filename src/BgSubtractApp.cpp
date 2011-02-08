@@ -50,13 +50,11 @@ class BgSubtractApp : public AppBasic
 					 Channel32f& channelResult, float threshold );
 };
 
-
 void BgSubtractApp::prepareSettings( Settings *settings )
 {
 	settings->setWindowSize( IMG_WIDTH * 3 + IMG_SPACER * 2, IMG_HEIGHT );
 	settings->setFrameRate( 60.0f );
 }
-
 
 void BgSubtractApp::setup()
 {
@@ -75,11 +73,9 @@ void BgSubtractApp::setup()
 	mThreshold = .2;
 }
 
-
 void BgSubtractApp::update()
 {
 }
-
 
 void BgSubtractApp::draw()
 {
@@ -121,7 +117,6 @@ void BgSubtractApp::draw()
 	gl::draw( output3, Vec2i( ( IMG_WIDTH + IMG_SPACER ) * 2 , 0 ) );
 }
 
-
 void BgSubtractApp::keyDown( KeyEvent event ) 
 {
 	// Change draw state based on keyboard input.
@@ -148,7 +143,6 @@ void BgSubtractApp::keyDown( KeyEvent event )
 		mThreshold = fmaxf( 0.0, mThreshold - .01 );
 	}
 }	
-
 
 void BgSubtractApp::subtractBg( Channel32f const& channel1, Channel32f const& channel2, 
 								Channel32f& channelResult, float threshold )
